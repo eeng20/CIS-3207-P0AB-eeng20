@@ -1,11 +1,18 @@
-/* code for ls */
+/* code for tuls */
 
 #include <stdlib.h>
-#include <dirent.h>		// recur & visit directories
-#include <sys/stat.h>		// determine what a file object is
+#include <stdio.h>
+#include <dirent.h>				// recur & visit directories
+#include <sys/stat.h>			// determine what a file object is
 
 
-int ls() {
+
+int tuls(directory) {
+
+	struct dirent **namelist;
+	int n; 
+	n=scandir(directory,&namelist,NULL,alphasort);
+	
 	exit(0);
 	// printf("INVALID ARGUEMENT"); 
 	// exit(NON_ZERO_INT);
