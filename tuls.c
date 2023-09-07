@@ -15,11 +15,12 @@ int tuls(char *path) {
 		exit(EXIT_FAILURE);
 	}
 
-	while (n--) {
-		printf("%s\n", namelist[n]->d_name);
-		free(namelist[n]);
-	}
-	free(namelist);
-
-	exit(EXIT_SUCCESS);
+    else {
+        for (i = 0; i < n; i++) {
+                printf("%s\n", namelist[i]->d_name);
+                free(namelist[i]);
+                }
+            }
+    free(namelist);
+    exit(EXIT_SUCCESS);
 }
