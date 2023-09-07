@@ -5,7 +5,7 @@
 #include <time.h>
 #include "tuls.c"
 
-int main(int argc, char const *argc[]) {
+int main(void) {
 	tuls("CIS-3207-P0AB-eeng20/");
 	return(0);
 }
