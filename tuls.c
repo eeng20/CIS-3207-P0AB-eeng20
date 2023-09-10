@@ -1,4 +1,4 @@
-/* code for tuls */
+/* PART A: tuls.c*/
 
 #include <stdlib.h>
 #include <string.h>
@@ -6,28 +6,25 @@
 #include <dirent.h>				// recur & visit directories
 #include <sys/stat.h>			// determine what a file object is
 
-void tuls(const char *dirname) {
-	DIR* dir = opendir(dirname);
+void tuls(const char *name) {
+	DIR* dir = opendir(name);
 	if (dir == NULL) {
 		perror("tuls: cannot open directory\n");
 		exit(1);
 	}
     struct dirent* entry;
-    printf("\n\tReading files in: %s\n:", dirname);
+    printf("\n\tFiles in: %s\n:", name);
     entry = readdir(dir);
     while (entry != NULL) {
-        // prints type of file & name
-        printf("%hhd %s%s\n", entry->d_type, dirname, entry->d_name);
-        // checks if entry is a file or a directory (avoids current "." and "..")
+        printf("%s\n", entry -> d_name);
+
         if (entry->d_type == DT_DIR && strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
             char path[100] = {0};
-            strcat(path, dirname);
+            strcat(path, name);
             strcat(path, "/");
             strcat(path, entry->d_name);
-        // recursively prints files
             tuls(path);
         }
-        // read files of the opened directory
         entry = readdir(dir);
     }
 
@@ -42,8 +39,9 @@ int main(int argc, char const *argv[]) {
         perror("tuls: cannot open directory\n");
         exit(EXIT_FAILURE);
     }
-    // read & prints files of the current directory
-	printf("\n\tReading files in: Current Directory");
+
+
+	printf("\n\tFiles in: Current Directory");
 	struct dirent **namelist;
     int n;
     int i = 0;
@@ -66,4 +64,4 @@ int main(int argc, char const *argv[]) {
 
 	}
 
-    // code https://www.youtube.com/watch?v=j9yL30R6npk&ab_channel=CodeVault
+    // recursive code from https://www.youtube.com/watch?v=j9yL30R6npk&ab_channel=CodeVault
