@@ -2,4 +2,4 @@
 #include <stdio.h>
 
 
-int tuls(char *path);
+void tuls(const char *dirname);
