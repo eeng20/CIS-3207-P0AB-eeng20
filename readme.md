@@ -10,5 +10,12 @@ tuls.c: Using C Library functions scandir(), opendir(), and readdir(), tuls take
 After it's done with a directory, it closes the directory.
 Finally, it prints out the current directory where the command was executed from.
 
-tucp.c: PART B
+PART B:
+
+tucp.c: open source file read-only
+create destination file for write
+while there's still data in source file
+    read data from source file
+    write it to destination file
+close both files
 
