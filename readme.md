@@ -17,7 +17,7 @@ tucp.c: Copies source file into either...
         in the case that there passed argument (which is the last arguement) is not a directory, it will instead create a new file for write and then copy the source file (we opened the source file to read) to the new file (for write). this is done with the struct FILE and checking for the EOF characters during the while loop.
         finally close source file and copied file.
 
-    B. copies the file to a specificed directory
+    B. copies the file to a specified directory
         in the case that there is a pathfile passed (the last arguement) or a directory, then it will create a new directory name leading to the copied FILE for write (e.g: desktop/copy) in order to copy the source file into the new file (desktop/copy) in the specified directory.
         finally close source file and copied file.
 
